@@ -1,12 +1,15 @@
 from flask import Flask
+from words1 import search4letters
 app = Flask(__name__)
 
 @app.route('/')
-def index():
-    return '<h1>Hello World!</h1>'
-@app.route('/user/<name>')
-def user(name):
-    return '<h1>Hi, %s!</h1>' % name
+def hello() -> str:
+    return 'Hello world from Flask!'
+@app.route('/search4')
+def do_search() -> str:
+    return str(search4letters('life, the universe, and everything', 'eiru,!'))
+    
 
-if  __name__ == '__main__':
-    app.run(debug=True)
+
+
+app.run()
